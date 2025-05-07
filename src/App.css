@@ -1,99 +1,94 @@
+/* Layout */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #f5f5f5;
+  background: #f0f2f5;
 }
-
-.app-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.header {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.login-box,
-.feed-box {
+.container {
+  max-width: 480px;
+  margin: 40px auto;
   background: #fff;
   padding: 20px;
-  margin-bottom: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
-
-.login-box h2,
-.feed-box h2 {
-  margin-top: 0;
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.toggle-buttons {
+/* Toggle Estudiante/Empresa */
+.toggle {
   display: flex;
   gap: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
-
-.toggle-buttons button {
+.toggle button {
   flex: 1;
-  padding: 8px;
+  padding: 10px;
   border: 1px solid #ccc;
   background: #fafafa;
   cursor: pointer;
   border-radius: 4px;
 }
-
-.toggle-buttons .active {
+.toggle .active {
   background: #007bff;
   color: #fff;
   border-color: #007bff;
 }
 
-.login-box input {
-  display: block;
+/* Inputs y botones comunes */
+input {
   width: 100%;
   padding: 10px;
   margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
-
-.btn-submit {
-  display: block;
-  width: 100%;
-  padding: 10px;
-  background: #007bff;
-  color: #fff;
+button {
+  padding: 10px 15px;
+  margin-top: 10px;
+  cursor: pointer;
   border: none;
   border-radius: 4px;
+  background: #007bff;
+  color: #fff;
+}
+.btn-logout {
+  background: #dc3545;
+}
+.link {
+  color: #007bff;
   cursor: pointer;
+  text-decoration: underline;
 }
 
-.register-text {
-  text-align: center;
-  margin-top: 10px;
-}
-
-.feed-box .card {
+/* Cards y Secciones */
+.card {
   border: 1px solid #e0e0e0;
   padding: 15px;
-  border-radius: 6px;
   margin-bottom: 15px;
+  border-radius: 6px;
 }
-
 .buttons {
   display: flex;
   gap: 10px;
   margin-top: 10px;
 }
-
 .buttons button {
   flex: 1;
-  padding: 8px;
-  border: 1px solid #007bff;
-  background: #fff;
-  color: #007bff;
+  background: #17a2b8;
+}
+
+/* Notificaciones */
+.notifications {
+  list-style: none;
+  padding: 0;
+}
+.notifications li {
+  background: #f8f9fa;
+  margin-bottom: 10px;
+  padding: 10px;
   border-radius: 4px;
-  cursor: pointer;
 }
