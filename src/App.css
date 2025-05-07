@@ -45,13 +45,13 @@ input {
   width: 100%;
   padding: 12px;
   margin-bottom: 18px;
-  font-size: 1rem;
+  font-size: 1.1rem;
   border: 1px solid #ccc;
   border-radius: 6px;
 }
 button {
   padding: 12px 20px;
-  font-size: 1rem;
+  font-size: 1.1rem;
   cursor: pointer;
   border: none;
   border-radius: 6px;
@@ -68,7 +68,7 @@ button:hover {
   text-decoration: underline;
 }
 p {
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 
 /* Feed Layout */
@@ -87,6 +87,8 @@ p {
   font-size: 1.5rem;
   background: transparent;
   color: #007bff;
+  border: none;
+  cursor: pointer;
 }
 .feed-nav {
   display: flex;
@@ -97,7 +99,7 @@ p {
 .feed-nav button {
   background: none;
   border: none;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: #007bff;
   cursor: pointer;
 }
@@ -123,16 +125,18 @@ p {
 }
 .filters h3 {
   margin-top: 0;
+  font-size: 1.2rem;
 }
 .filters label {
   display: block;
   margin-bottom: 15px;
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 .filters select {
   width: 100%;
-  padding: 8px;
-  font-size: 1rem;
+  padding: 10px;
+  font-size: 1.1rem;
+  border-radius: 6px;
 }
 
 /* Cards */
@@ -141,7 +145,7 @@ p {
   border: 1px solid #e0e0e0;
   padding: 20px;
   border-radius: 8px;
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 .buttons {
   margin-top: 15px;
@@ -150,9 +154,14 @@ p {
   background: #17a2b8;
   margin-right: 10px;
 }
+
+/* Logout footer */
+.logout-footer {
+  text-align: center;
+  margin-top: 20px;
+}
 .btn-logout {
   background: #dc3545;
-  padding: 8px 15px;
 }
 
 /* Notificaciones */
@@ -165,4 +174,5 @@ p {
   padding: 12px;
   margin-bottom: 12px;
   border-radius: 6px;
+  font-size: 1.1rem;
 }

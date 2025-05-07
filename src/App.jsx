@@ -114,6 +114,11 @@ function App() {
           </label>
         </aside>
       </div>
+      <div className="logout-footer">
+        <button className="btn-logout" onClick={() => setPantalla('login')}>
+          Cerrar Sesión
+        </button>
+      </div>
     </div>
   );
 
@@ -143,6 +148,11 @@ function App() {
             </div>
           ))}
         </div>
+      </div>
+      <div className="logout-footer">
+        <button className="btn-logout" onClick={() => setPantalla('login')}>
+          Cerrar Sesión
+        </button>
       </div>
     </div>
   );
