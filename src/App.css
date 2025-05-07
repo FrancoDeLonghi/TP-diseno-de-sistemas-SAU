@@ -1,24 +1,25 @@
-/* Layout */
+/* Base */
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
   background: #f0f2f5;
+  color: #222;
 }
 .container {
-  max-width: 480px;
+  width: 100%;
+  max-width: 1200px;
   margin: 40px auto;
   background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+h1 {
+  font-size: 2rem;
+  margin: 0 0 20px;
 }
 
-/* Toggle Estudiante/Empresa */
+/* Toggle Login/Registro */
 .toggle {
   display: flex;
   gap: 10px;
@@ -26,11 +27,12 @@ body {
 }
 .toggle button {
   flex: 1;
-  padding: 10px;
+  padding: 12px;
+  font-size: 1rem;
   border: 1px solid #ccc;
   background: #fafafa;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 .toggle .active {
   background: #007bff;
@@ -38,47 +40,119 @@ body {
   border-color: #007bff;
 }
 
-/* Inputs y botones comunes */
+/* Inputs y botones */
 input {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
+  padding: 12px;
+  margin-bottom: 18px;
+  font-size: 1rem;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 button {
-  padding: 10px 15px;
-  margin-top: 10px;
+  padding: 12px 20px;
+  font-size: 1rem;
   cursor: pointer;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   background: #007bff;
   color: #fff;
+  transition: background 0.2s;
 }
-.btn-logout {
-  background: #dc3545;
+button:hover {
+  background: #0056b3;
 }
 .link {
   color: #007bff;
   cursor: pointer;
   text-decoration: underline;
 }
+p {
+  font-size: 1rem;
+}
 
-/* Cards y Secciones */
-.card {
-  border: 1px solid #e0e0e0;
+/* Feed Layout */
+.feed {
+  padding: 0;
+}
+.feed-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 25px;
+  border-bottom: 1px solid #e0e0e0;
+}
+.btn-notif,
+.btn-publish {
+  font-size: 1.5rem;
+  background: transparent;
+  color: #007bff;
+}
+.feed-nav {
+  display: flex;
+  gap: 20px;
+  padding: 15px 25px;
+  border-bottom: 1px solid #e0e0e0;
+}
+.feed-nav button {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  color: #007bff;
+  cursor: pointer;
+}
+.feed-body {
+  display: flex;
+  padding: 25px;
+  gap: 20px;
+}
+.single-column .feed-body {
+  flex-direction: column;
+}
+.offers-list {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.filters {
+  flex: 1;
+  background: #f9f9f9;
   padding: 15px;
+  border-radius: 8px;
+}
+.filters h3 {
+  margin-top: 0;
+}
+.filters label {
+  display: block;
   margin-bottom: 15px;
-  border-radius: 6px;
+  font-size: 1rem;
+}
+.filters select {
+  width: 100%;
+  padding: 8px;
+  font-size: 1rem;
+}
+
+/* Cards */
+.card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  padding: 20px;
+  border-radius: 8px;
+  font-size: 1rem;
 }
 .buttons {
-  display: flex;
-  gap: 10px;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 .buttons button {
-  flex: 1;
   background: #17a2b8;
+  margin-right: 10px;
+}
+.btn-logout {
+  background: #dc3545;
+  padding: 8px 15px;
 }
 
 /* Notificaciones */
@@ -88,7 +162,7 @@ button {
 }
 .notifications li {
   background: #f8f9fa;
-  margin-bottom: 10px;
-  padding: 10px;
-  border-radius: 4px;
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 6px;
 }

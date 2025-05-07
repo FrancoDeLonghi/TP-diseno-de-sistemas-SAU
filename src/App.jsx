@@ -71,54 +71,79 @@ function App() {
     </div>
   );
 
-  const renderFeed = () => (
-    <div className="container">
-      <header className="header">
-        <h1>Panel de {userType === 'estudiante' ? 'Estudiante' : 'Empresa'}</h1>
-        <button className="btn-logout" onClick={() => setPantalla('login')}>
-          Cerrar Sesión
+  const renderStudentFeed = () => (
+    <div className="container feed">
+      <header className="feed-header">
+        <h1>Panel del Estudiante</h1>
+        <button className="btn-notif" onClick={() => setPantalla('notificaciones')}>
+          🔔
         </button>
       </header>
-      {userType === 'estudiante' ? (
-        <>
-          <h2>Pasantías Disponibles</h2>
-          {[0, 1].map((_, idx) => (
-            <div className="card" key={idx}>
-              <h3>📌 Pasantía en Empresa {idx + 1}</h3>
-              <p>
-                Área: Sistemas |{' '}
-                {idx % 2 === 0 ? 'Remota' : 'Presencial'}
-              </p>
+      <nav className="feed-nav">
+        <button>Mis postulaciones</button>
+        <button>Mi perfil</button>
+        <button>Buscar pasantía</button>
+      </nav>
+      <div className="feed-body">
+        <div className="offers-list">
+          {[1, 2, 3].map((i) => (
+            <div className="card" key={i}>
+              <h3>📌 Pasantía en Empresa {i}</h3>
+              <p>Área: Sistemas | Modalidad: {i % 2 === 0 ? 'Remota' : 'Presencial'}</p>
               <div className="buttons">
-                <button onClick={() => setPantalla('notificaciones')}>
-                  Ver Notificaciones
-                </button>
-                <button onClick={() => setPantalla('postulante')}>
-                  Ver Detalle Postulante
-                </button>
+                <button onClick={() => setPantalla('postulante')}>Postularme</button>
               </div>
             </div>
           ))}
-        </>
-      ) : (
-        <>
-          <h2>Mis Ofertas Activas</h2>
-          {[0, 1].map((_, idx) => (
-            <div className="card" key={idx}>
-              <h3>📌 Oferta {idx + 1}</h3>
-              <p>Publicada: 10/05/2025 | Postulantes: {3 + idx}</p>
+        </div>
+        <aside className="filters">
+          <h3>Filtros</h3>
+          <label>
+            Carrera:
+            <select>
+              <option>Sistemas</option>
+              <option>Administración</option>
+            </select>
+          </label>
+          <label>
+            Modalidad:
+            <select>
+              <option>Remota</option>
+              <option>Presencial</option>
+            </select>
+          </label>
+        </aside>
+      </div>
+    </div>
+  );
+
+  const renderCompanyFeed = () => (
+    <div className="container feed">
+      <header className="feed-header">
+        <button className="btn-publish">➕ Publicar oferta</button>
+        <h1>Panel de Empresa</h1>
+        <button className="btn-notif" onClick={() => setPantalla('notificaciones')}>
+          🔔
+        </button>
+      </header>
+      <nav className="feed-nav">
+        <button>Mis ofertas</button>
+        <button>Postulantes</button>
+        <button>Mi perfil</button>
+      </nav>
+      <div className="feed-body single-column">
+        <div className="offers-list">
+          {[1, 2].map((i) => (
+            <div className="card" key={i}>
+              <h3>📌 Oferta {i}</h3>
+              <p>Publicada: 10/05/2025 | Postulantes: {i * 3}</p>
               <div className="buttons">
-                <button onClick={() => setPantalla('notificaciones')}>
-                  Ver Notificaciones
-                </button>
-                <button onClick={() => setPantalla('postulante')}>
-                  Detalle de Postulante
-                </button>
+                <button onClick={() => setPantalla('postulante')}>Detalle Postulante</button>
               </div>
             </div>
           ))}
-        </>
-      )}
+        </div>
+      </div>
     </div>
   );
 
@@ -129,10 +154,8 @@ function App() {
         <h3>Juan Pérez</h3>
         <p>Carrera: Ingeniería en Sistemas</p>
         <p>Promedio: 8.5 | Año: 4°</p>
-        <div className="buttons">
-          <button onClick={() => setPantalla('feed')}>Volver</button>
-        </div>
       </div>
+      <button onClick={() => setPantalla('feed')}>Volver</button>
     </div>
   );
 
@@ -145,24 +168,18 @@ function App() {
         <li>❌ Fuiste descartado de la oferta “Beca UX”.</li>
         <li>✔️ Fuiste aceptado en la oferta “Data Jr.”.</li>
       </ul>
-      <button onClick={() => setPantalla('feed')}>Volver al Feed</button>
+      <button onClick={() => setPantalla('feed')}>Volver</button>
     </div>
   );
 
-  switch (pantalla) {
-    case 'login':
-      return renderLogin();
-    case 'registro':
-      return renderRegistro();
-    case 'feed':
-      return renderFeed();
-    case 'postulante':
-      return renderPostulante();
-    case 'notificaciones':
-      return renderNotificaciones();
-    default:
-      return renderLogin();
+  if (pantalla === 'login') return renderLogin();
+  if (pantalla === 'registro') return renderRegistro();
+  if (pantalla === 'feed') {
+    return userType === 'estudiante' ? renderStudentFeed() : renderCompanyFeed();
   }
+  if (pantalla === 'postulante') return renderPostulante();
+  if (pantalla === 'notificaciones') return renderNotificaciones();
+  return renderLogin();
 }
 
 export default App;
