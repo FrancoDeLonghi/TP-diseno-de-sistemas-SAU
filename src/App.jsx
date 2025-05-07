@@ -161,7 +161,7 @@ function App() {
     <div className="container">
       <h1>Detalle de Postulante</h1>
       <div className="card">
-        <h3>Juan Pérez</h3>
+        <h3>Franco Longhi</h3>
         <p>Carrera: Ingeniería en Sistemas</p>
         <p>Promedio: 8.5 | Año: 4°</p>
       </div>
