@@ -1,0 +1,127 @@
+.topbar {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  gap: 1rem;
+}
+.logo {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #0066ff;
+}
+.nav-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1rem;
+}
+.nav-links li {
+  cursor: pointer;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+}
+.nav-links .active {
+  background: #0066ff;
+  color: #fff;
+}
+.actions {
+  margin-left: auto;
+}
+.btn-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.bell-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-image: url('/bell.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.layout {
+  display: flex;
+}
+.sidebar {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  width: 240px;
+  margin: 1rem;
+}
+.filter-group { margin-bottom: 1rem; }
+.filter-group label { display: block; margin-bottom: 0.25rem; }
+.cards {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+  flex: 1;
+}
+.card {
+  padding: 1rem;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.actions {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.topbar {
+  position: relative; /* Agregado para posicionar correctamente la caja */
+}
+
+.notification-box {
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 1rem;
+  width: 200px;
+  z-index: 100;
+}
+
+.notification-box p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+}

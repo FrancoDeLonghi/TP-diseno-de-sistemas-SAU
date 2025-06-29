@@ -1,57 +1,30 @@
-import React, { useState } from 'react';
-import Login from './Components/auth/Login';
-import SignUp from './Components/auth/SignUp';
-import InternshipList from './Components/internships/InternshipList';
-import Header from './Components/layout/Header';
-import Footer from './Components/layout/Footer';
-import './App.css';
+import { useState } from 'react';
+import Login from './components/Login';
+import Register from './components/Register';
+import StudentFeed from './components/StudentFeed';
+import CompanyFeed from './components/CompanyFeed';
 
-function App() {
-  const [currentView, setCurrentView] = useState('login');
-  const [userType, setUserType] = useState('estudiante');
-  const [userData, setUserData] = useState({
-    fullName: '',
-    email: '',
-    password: '',
-    career: '',
-    studentId: ''
-  });
+export default function App() {
+  const [view, setView] = useState('login');
+  const [role, setRole] = useState('student');
 
-  return (
-    <div className="app-container">
-      {currentView !== 'login' && currentView !== 'signup' && (
-        <Header setCurrentView={setCurrentView} />
-      )}
-      
-      <main className="main-content">
-        {currentView === 'login' && (
-          <Login 
-            setCurrentView={setCurrentView}
-            userType={userType}
-            setUserType={setUserType}
-            userData={userData}
-            setUserData={setUserData}
-          />
-        )}
-        
-        {currentView === 'signup' && (
-          <SignUp 
-            setCurrentView={setCurrentView}
-            userType={userType}
-            setUserType={setUserType}
-            userData={userData}
-            setUserData={setUserData}
-          />
-        )}
-        
-        {currentView === 'internships' && (
-          <InternshipList />
-        )}
-      </main>
-      
-      {currentView !== 'login' && currentView !== 'signup' && <Footer />}
-    </div>
-  );
+  const onLogin = (selectedRole) => {
+    setRole(selectedRole);
+    setView(selectedRole === 'student' ? 'student' : 'company');
+  };
+
+  const onRegister = (selectedRole) => {
+    setRole(selectedRole);
+    setView('login');
+  };
+
+  const onLogout = () => {
+    setRole('student');
+    setView('login');
+  };
+
+  if (view === 'login') return <Login onLogin={onLogin} onSwitch={() => setView('register')} />;
+  if (view === 'register') return <Register onRegister={onRegister} onSwitch={() => setView('login')} />;
+  if (view === 'student') return <StudentFeed onLogout={onLogout} />;
+  return <CompanyFeed onLogout={onLogout} />;
 }
-
-export default App;
