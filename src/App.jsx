@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import Login from './components/Login';
-import Register from './components/Register';
-import StudentFeed from './components/StudentFeed';
-import CompanyFeed from './components/CompanyFeed';
+import Login from './Components/Login';
+import Register from './Components/Register';
+import StudentFeed from './Components/StudentFeed';
+import CompanyFeed from './Components/CompanyFeed';
 
 export default function App() {
   const [view, setView] = useState('login');
